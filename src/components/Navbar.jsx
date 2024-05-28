@@ -4,8 +4,6 @@ import { BsEnvelope, BsFilePerson } from 'react-icons/bs'
 import Logo from '../assets/JI_logo.png'
 import { Link as ScrollLink } from 'react-scroll';
 
-
-
 // import { Document, Page, pdfjs } from '@react-pdf/renderer';
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -73,8 +71,6 @@ const Navbar = () => {
               Email<BsEnvelope size={30}></BsEnvelope>
             </a>
           </li>
-
-
         </ul>
       </div>
     </div >
