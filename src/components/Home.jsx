@@ -1,6 +1,6 @@
 import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Home = () => {
   return (
@@ -16,7 +16,7 @@ const Home = () => {
           I am a third year computer science student at the UVic
         </p>
         <div>
-          <Link to="/work">
+          <ScrollLink to="works">
             <button className='text-[#588061] group border-[#588061] border-2 rounded-full px-6 py-3 my-2 flex items-center hover:text-white hover:bg-[#869F77] hover:border-[#588061]'>
 
               View Work
@@ -25,7 +25,7 @@ const Home = () => {
                 <HiArrowNarrowRight className='ml-3 ' />
               </span>
             </button>
-          </Link>
+          </ScrollLink>
         </div>
       </div>
     </div>

@@ -1,25 +1,21 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import Skills from "./components/Skills";
-import Work from "./components/Work";
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import Skills from './components/Skills';
+import Works from './components/Works';
+import Contact from './components/Contact';
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <div id="home"><Home /></div>
+      <div id="about"><About /></div>
+      <div id="skills"><Skills /></div>
+      <div id="works"><Works /></div>
+      <div id="contact"><Contact /></div>
     </div>
   );
 }
-
 export default App;

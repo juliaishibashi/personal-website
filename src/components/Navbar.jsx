@@ -2,46 +2,48 @@ import React, { useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { BsEnvelope, BsFilePerson } from 'react-icons/bs'
 import Logo from '../assets/JI_logo.png'
-import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
+
+
 
 // import { Document, Page, pdfjs } from '@react-pdf/renderer';
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const hadleClick = () => {
+  const handleClick = () => {
     setNav(!nav)
   };
 
   return (
-    <div className='fixed w-full h-[80px] flex justify-between items-centre px-4 bg-[#FDE9EA]mt-4 text-[#588061]'>
+    <div className='fixed w-full h-[80px] flex justify-between items-centre px-4 bg-[#FDE9EA] text-[#869F77] z-50'>
       {/* Logo */}
       <div>
-        <Link to="/">
-          <img src={Logo} alt='Julia Logo' style={{ width: '50px' }} />
-        </Link>
+        <ScrollLink to="home" smooth={true} duration={500}>
+          <img src={Logo} alt='Julia Logo' style={{ width: '70px' }} />
+        </ScrollLink>
       </div>
 
       {/* Menu */}
-      <ul className='hidden md:flex'>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/skills">Skills</Link></li>
-        <li><Link to="/work">Works</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+      <ul className='hidden md:flex space-x-6'>
+        <li className='py-2 text-2xl hover:text-black '><ScrollLink to="home" smooth={true} duration={500}>Home</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-black '><ScrollLink to="about" smooth={true} duration={500}>About</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-black '><ScrollLink to="skills" smooth={true} duration={500}>Skills</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-black  '><ScrollLink to="works" smooth={true} duration={500}>Works</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-black '><ScrollLink to="contact" smooth={true} duration={500}>Contact</ScrollLink></li>
       </ul>
 
       {/* Hamberger Menu */}
-      <div onClick={hadleClick} className='md:hidden z-10 absolute top-4 right-4'>
+      <div onClick={handleClick} className='md:hidden z-10 absolute top-4 right-4'>
         {nav ? <FaTimes /> : <FaBars />}
       </div>
 
       {/* Mobile Menu */}
       <div className={!nav ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#FDE9EA] flex flex-col justify-center items-center'}>
-        <ul className="list-none md:flex">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/skills">Skills</Link></li>
-          <li><Link to="/work">Works</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+        <ul className='list-none md:flex'>
+          <li className='py-6 text-4xl hover:text-black'><ScrollLink to="home" onClick={handleClick}>Home</ScrollLink></li>
+          <li className='py-6 text-4xl hover:text-black'><ScrollLink to="about" onClick={handleClick} >About</ScrollLink></li>
+          <li className='py-6 text-4xl hover:text-black'><ScrollLink to="skills" onClick={handleClick}>Skills</ScrollLink></li>
+          <li className='py-6 text-4xl hover:text-black'><ScrollLink to="works" onClick={handleClick}>Works</ScrollLink></li>
+          <li className='py-6 text-4xl hover:text-black'><ScrollLink to="contact" onClick={handleClick} >Contact</ScrollLink></li>
         </ul>
       </div>
 
