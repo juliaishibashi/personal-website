@@ -13,7 +13,7 @@ const Home = () => {
           Julia Ishibashi
         </h1>
         <p className='text-[#588061] py-4 max-w-[700px]'>
-          I am a third year computer science student at the UVic
+          Thank you for visiting my website!
         </p>
         <div>
           <ScrollLink to="works">

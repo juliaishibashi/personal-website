@@ -29,7 +29,7 @@ const Contact = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        alert('Failed to send email.');
+        alert('sowwy not working yet :(');
       });
 
     setFormData({
