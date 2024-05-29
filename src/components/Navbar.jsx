@@ -6,7 +6,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import { Helmet } from 'react-helmet';
 
 
-// import { Document, Page, pdfjs } from '@react-pdf/renderer';
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => {
@@ -57,9 +57,9 @@ const Navbar = () => {
 
       <div className='hidden lg:flex fixed flex-col top-[35%] left-0 text-[#869F77] bg-[#FDE9EA]'>
         <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-          <a className='flex justify-between items-center w-full text-[999b84]' href='/' target="_blank" rel="noopener noreferrer">
+          {/* <a className='flex justify-between items-center w-full text-[999b84]' href='' target="_blank" rel="noopener noreferrer">
             Resume<BsFilePerson size={30}></BsFilePerson>
-          </a>
+          </a> */}
         </li>
         <ul>
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
