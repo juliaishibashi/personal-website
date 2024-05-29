@@ -1,5 +1,5 @@
 <h1>Julia's personal website</h1>
-<h4 align="left">Here is my first project using React!</h3>
+<h4 align="left">Here is my first project using React: https://juliaishibashi.vercel.app </h3>
 <h4 align="left">Languages and Tools that I used:</h3>
 <p align="left">
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">
