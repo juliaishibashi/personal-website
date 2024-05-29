@@ -1,6 +1,6 @@
 <h1>Julia's personal website</h1>
 <h4 align="left">Here is my first project using React: https://juliaishibashi.vercel.app </h3>
-<h4 align="left">Languages and Tools that I used:</h3>
+<h4 align="left">Languages and tools that I used:</h3>
 <p align="left">
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40" />
