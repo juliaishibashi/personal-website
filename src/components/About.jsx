@@ -14,7 +14,8 @@ const About = () => {
         </div>
         <div className='max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4'>
           <div className='sm:text-right text-5xl font-bold text-[#869F77]'>
-            <p>Hi there! I am Julia!</p>
+
+            <p>Hello, My name is Julia!</p>
           </div>
           <div>
             <p className='text-[#588061]'>I was raised in Japan and now I am a third-year Computer Science student at UVic. My favorite subject is algorithms because is not it amazing how the concept of a tree was invented?! Although I have not done much coding outside of class assignments before, I recently started working on my own projects. I have got plenty of ideas, so stay tuned for more updates! </p>
