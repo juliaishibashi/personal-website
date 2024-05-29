@@ -3,6 +3,8 @@ import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { BsEnvelope, BsFilePerson } from 'react-icons/bs'
 import Logo from '../assets/JI_logo.png'
 import { Link as ScrollLink } from 'react-scroll';
+import { Helmet } from 'react-helmet';
+
 
 // import { Document, Page, pdfjs } from '@react-pdf/renderer';
 const Navbar = () => {
@@ -12,7 +14,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className='fixed w-full h-[80px] flex justify-between items-centre px-4 bg-[#FDE9EA] text-[#869F77] z-50'>
+    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#FDE9EA] text-[#869F77] z-50'>
+      {/* Helmet*/}
+      <Helmet>
+        <title>Julia Ishibashi</title>
+        <link rel="icon" type="image/png" href={Logo} sizes="32x32" />
+      </Helmet>
+
       {/* Logo */}
       <div>
         <ScrollLink to="home" smooth={true} duration={500}>
