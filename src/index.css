@@ -7,7 +7,8 @@
 
 @layer base {
     body {
-        font-family: 'Lilita One', cursive;
+        /* font-family: 'Lilita One', cursive; */
+        font-family: Optima, sans-serif;
         @apply text-xl
     }
 
@@ -15,4 +16,35 @@
         @apply px-4;
         @apply cursor-pointer;
     }
+
+    .curved-text {
+    overflow: visible;
+    letter-spacing: 6px;
+    font-size: 14px;
+    animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+    .skill-card {
+        opacity: 0;
+        transform: translateY(-100vh);
+      }
+      
+      @keyframes fall {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .star {
+        display: inline-block;
+        transform: translateY(px); /* Adjust the value to lower the position */
+      }
 }
