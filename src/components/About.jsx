@@ -50,7 +50,7 @@ const About = () => {
               className='text-[#000]'
             >
               I was raised in Japan and now I am a third-year Computer Science student at UVic. 
-              My favorite subject is algorithms because isn't it amazing how the concept of a tree was invented?! 
+              My favorite subject is algorithms because is not it amazing how the concept of a tree was invented?! 
               Although I have not done much coding outside of class assignments before, I recently started working on my own projects. 
               I have got plenty of ideas, so stay tuned for more updates!
             </motion.p>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { BsEnvelope, BsFilePerson } from 'react-icons/bs'
-import Logo from '../assets/JI_logo.png'
+import { BsEnvelope} from 'react-icons/bs'
+import Logo from '../assets/julia.png'
+import Bird from '../assets/bird.png'
 import { Link as ScrollLink } from 'react-scroll';
 import { Helmet } from 'react-helmet';
 
@@ -18,13 +19,13 @@ const Navbar = () => {
       {/* Helmet*/}
       <Helmet>
         <title>Julia Ishibashi</title>
-        <link rel="icon" type="image/png" href={Logo} sizes="32x32" />
+        <link rel="icon" type="image/png" href={Bird} sizes="100x60" />
       </Helmet>
 
       {/* Logo */}
       <div>
         <ScrollLink to="home" smooth={true} duration={500}>
-          <img src={Logo} alt='Julia Logo' style={{ width: '70px' }} />
+          <img src={Logo} alt='Julia Logo' style={{ width: '300px' }} />
         </ScrollLink>
       </div>
 
