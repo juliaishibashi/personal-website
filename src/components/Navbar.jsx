@@ -5,8 +5,7 @@ import Logo from '../assets/julia.png'
 import Bird from '../assets/bird.png'
 import { Link as ScrollLink } from 'react-scroll';
 import { Helmet } from 'react-helmet';
-
-
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -68,21 +67,21 @@ const Navbar = () => {
         </li>
         <ul>
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <a className='flex justify-between items-center w-full text-[999b84]' href='https://www.linkedin.com/in/juliaishibashi/' target="_blank" rel="noopener noreferrer">
+            <a className='flex justify-between items-center w-full text-black' href='https://www.linkedin.com/in/juliaishibashi/' target="_blank" rel="noopener noreferrer">
               Linkedin<FaLinkedin size={30}></FaLinkedin>
             </a>
           </li>
 
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <a className='flex justify-between items-center w-full text-[999b84]' href='https://github.com/juliaishibashi' target="_blank" rel="noopener noreferrer">
+            <a className='flex justify-between items-center w-full text-black' href='https://github.com/juliaishibashi' target="_blank" rel="noopener noreferrer">
               Github<FaGithub size={30}></FaGithub>
             </a>
           </li>
 
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <a className='flex justify-between items-center w-full text-[999b84]' href='/contact'>
-              Email<BsEnvelope size={30}></BsEnvelope>
-            </a>
+            <Link className='flex justify-between items-center w-full text-black' to="/contact">
+            Email<BsEnvelope size={30} />
+            </Link>
           </li>
         </ul>
       </div>
