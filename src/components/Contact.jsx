@@ -1,50 +1,52 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField'; 
+import CircularProgress from '@mui/material/CircularProgress'
+import axios from 'axios';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [emailSent, setEmailSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { name, email, subject, message } = formData;
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
 
-    const params = {
-      from_name: name,
-      from_email: email,
-      subject: subject,
-      message: message,
-    };
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
 
-    emailjs.send(
-      process.env.REACT_APP_SERVICE_ID,
-      process.env.REACT_APP_TEMPLATE_ID,
-      params,
-      process.env.REACT_APP_USER_ID
-    )
-    .then((response) => {
-      console.log('Success:', response);
-      alert('Email sent successfully!');
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      alert('Sorry, something went wrong.');
-    });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
+    try {
+      setIsSending(true);
+      // Simulate sending process
+      await axios.post(`${process.env.REACT_APP_API_URL}/contact`, {
+        name: name,
+        email: email,
+        message: message,
+      })
+
+      console.log("Message sent successfully");
+      // After sending, mark email as sent
+      setEmailSent(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSending(false);
+    }
+    console.log('Email:', email);
+    console.log('Message:', message);
   };
 
   return (
@@ -55,52 +57,77 @@ const Contact = () => {
           <p className='text-5xl inline border-b border-[#000000]'>Contact</p>
           <p className='py-6'></p>
         </div>
-        
-        {/* Form */}
-        <form className='flex flex-col max-w-[600px] mx-auto' onSubmit={handleSubmit}>
-          <input
-            className='bg-[#FFFFFF] p-2 rounded-lg mb-4'
-            type="text"
-            placeholder='Name'
+        {emailSent ? (
+          <div className='text-center'>
+            <p className='text-2xl'>Your message has been sent!</p>
+            <button
+              className='text-black group border-black border-2 hover:text-[#fbc1d4] hover:bg-black hover:border-black px-4 py-3 mx-auto mt-4 flex items-center'
+              style={{
+                borderRadius: '4px'
+              }}
+              onClick={() => {
+                setEmail('');
+                setMessage('');
+                setEmailSent(false);
+              }}
+            >
+              Send Another Message
+            </button>
+          </div>
+        ) : (
+            <Stack sx={{ width: "100%", justifyContent: 'center', alignItems: 'center' }}
+            component="form"
+            spacing={2}
+            onSubmit={handleSubmit}
+            >
+          <TextField
+            required
+            fullWidth
+            label='Name'
             name='name'
-            id='name'
-            value={formData.name}
-            onChange={handleChange}
+            variant='filled'
+            color="black"
+            value={name}
+            onChange={handleNameChange}
           />
-          <input
-            className='bg-[#FFFFFF] p-2 rounded-lg mb-4'
-            type="email"
-            placeholder='Email'
+          <TextField
+            required
+            fullWidth
+            label='Email'
             name='email'
-            id='email'
-            value={formData.email}
-            onChange={handleChange}
+            variant='filled'
+            color="black"
+            value={email}
+            onChange={handleEmailChange}
           />
-          <input
-            className='bg-[#FFFFFF] p-2 rounded-lg mb-4'
-            type="text"
-            placeholder='Subject'
-            name='subject'
-            id='subject'
-            value={formData.subject}
-            onChange={handleChange}
+          <TextField
+            required
+            fullWidth
+            label='Message'
+            name='message'
+            variant='filled'
+            color="black"
+            value={message}
+            onChange={handleMessageChange}
+            multiline
+            rows={4}
           />
-          <textarea
-            className='bg-[#FFFFFF] p-2 rounded-lg mb-4'
-            name="message"
-            rows="6"
-            placeholder='Message'
-            id='message'
-            value={formData.message}
-            onChange={handleChange}
-          ></textarea>
           <button
             type='submit'
-            className='text-black group border-black rounded-full border-2 hover:text-[#fbc1d4] hover:bg-black hover:border-black px-4 py-3 mx-auto flex items-center'
+            className='text-black border-black border-2 hover:text-[#fbc1d4] hover:bg-black hover:border-black px-4 py-3 mx-auto flex items-center'
+                disabled={isSending}
+                style={{
+                  borderRadius: '4px',
+                  width: '100px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',   
+                }}
           >
-            Send
+            {isSending ? <CircularProgress size={16} sx={{ color: 'white' }}/> : 'Send'}
           </button>
-        </form>
+        </Stack>
+        )}
       </div>
     </div>
   );
