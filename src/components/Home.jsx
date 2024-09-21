@@ -41,7 +41,7 @@ const Home = () => {
           svgProps={{ className: 'absolute curved-text' }} // Apply the class here
           />
       </div>
-      {/* アイコン */}
+      {/* icon */}
       <span className='group-hover:rotate-90 duration-300'>
         <BsHeartArrow className='ml-3 text-6xl' />
       </span>
