@@ -1,5 +1,5 @@
 import comingsoon from '../assets/projects/coming_soon.png'
-import sort from '../assets/sort.gif'
+import sort from '../assets/projects/sort.gif'
 
 export const data = [
     {
