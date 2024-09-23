@@ -14,14 +14,14 @@ export const data = [
     {
         id: 2,
         name: "Julia sets in Julia",
-        image: comingsoon,
+        image: julia,
         github: "https://github.com/juliaishibashi/julia-juliaset",
         live: "",
     },
     {
         id: 3,
         name: "Maze Game",
-        image: julia,
+        image: comingsoon,
         github: "https://github.com/juliaishibashi/cpp-maze",
         live: "",
     },

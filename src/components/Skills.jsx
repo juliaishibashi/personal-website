@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 
 const skills = [
-  { category: "Languages", items: ["Java", "Python", "C++", "Swift", "SQL", "Julia", "R", "Javascript", "HTML", "CSS"] },
+  { category: "Languages", items: ["Java", "Python", "C++", "Swift", "SQL", "Julia", "R", "Javascript"] },
   { category: "Technologies", items: ["Git", "React", "pandas", "JUnit", "Catch2"] },
   { category: "Miscellaneous", items: ["Black/white box unit testing", "PostgreSQL", "Figma", "LaTeX", "Jupyter Notebook", "Matlab"] }
 ];

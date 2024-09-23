@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { BsEnvelope} from 'react-icons/bs'
+import { BsEnvelope } from 'react-icons/bs'
 import Logo from '../assets/julia.png'
 import Bird from '../assets/bird.png'
 import { Link as ScrollLink } from 'react-scroll';
@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleClick = () => {
     setNav(!nav)
   };
-
+  
   return (
     <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#fbc1d4] text-[#000] z-50'>
       {/* Helmet*/}
@@ -66,22 +66,45 @@ const Navbar = () => {
         </li>
         <ul>
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <a className='flex justify-between items-center w-full text-[999b84]' href='https://www.linkedin.com/in/juliaishibashi/' target="_blank" rel="noopener noreferrer">
+            <a className='flex justify-between items-center w-full' href='https://www.linkedin.com/in/juliaishibashi/' target="_blank" rel="noopener noreferrer">
               Linkedin<FaLinkedin size={30}></FaLinkedin>
             </a>
           </li>
 
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <a className='flex justify-between items-center w-full text-[999b84]' href='https://github.com/juliaishibashi' target="_blank" rel="noopener noreferrer">
-              Github<FaGithub size={30}></FaGithub>
+            <a className='flex justify-between items-center w-full' href='https://github.com/juliaishibashi' target="_blank" rel="noopener noreferrer">
+              Github
+              <FaGithub size={30} />
             </a>
           </li>
 
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <a className='flex justify-between items-center w-full text-[999b84]' href='/contact'>
-              Email<BsEnvelope size={30}></BsEnvelope>
-            </a>
-          </li>
+          {/* <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
+            <ScrollLink
+              to="contact"
+              smooth={true}
+              duration={500}
+              className='flex justify-between items-center w-full'
+            >
+              Email
+              <BsEnvelope size={30} />
+            </ScrollLink>
+          </li> */}
+
+<li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
+  <button
+    onClick={() => {
+      const contactElement = document.getElementById('contact');
+      if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'instant' }); // スクロールなしで移動
+      }
+    }}
+    className='flex justify-between items-center w-full'
+  >
+    Email
+    <BsEnvelope size={30} />
+  </button>
+</li>
+
         </ul>
       </div>
     </div >
