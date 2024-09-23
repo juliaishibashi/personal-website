@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/contact', async(req, res) => {
+app.post('/contact', async (req, res) => {
     // Extract email and message from the request body
     const { name, email, message } = req.body;
 
@@ -40,11 +40,10 @@ app.post('/contact', async(req, res) => {
         await transporter.sendMail(ReceiveMailOptions);
         res.status(200).json({ message: 'message sent' });
     } catch {
-        console.log(error);
-        res.status(500).json({ message: 'fail to send the message :(' });
+        console.error('Error sending email:', error);
+        res.status(500).json({ message: 'Failed to send the message :(' });
     }
-
-}) 
+});
 
 app.listen(port, () => {
     console.log(`sarver turning on at port ${port}`)
