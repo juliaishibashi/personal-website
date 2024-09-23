@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import Marquee from 'react-fast-marquee';
 
 const skills = [
   { category: "Languages", items: ["Java", "Python", "C++", "Swift", "SQL", "Julia", "R", "Javascript"] },

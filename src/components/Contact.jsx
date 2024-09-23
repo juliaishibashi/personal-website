@@ -11,7 +11,7 @@ const Contact = () => {
   const [emailSent, setEmailSent] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
-  const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
+  // const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -31,7 +31,8 @@ const Contact = () => {
     try {
       setIsSending(true);
       // Simulate sending process
-      await axios.post(`${process.env.REACT_APP_API_URL}/contact`, {
+      // await axios.post(`${process.env.REACT_APP_API_URL}/contact`, {
+      await axios.post('https://juliaishibashi.vercel.app/contact', {
         name: name,
         email: email,
         message: message,
