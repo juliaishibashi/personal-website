@@ -6,8 +6,6 @@ import Bird from '../assets/bird.png'
 import { Link as ScrollLink } from 'react-scroll';
 import { Helmet } from 'react-helmet';
 
-
-
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => {
