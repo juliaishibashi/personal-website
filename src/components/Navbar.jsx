@@ -31,13 +31,13 @@ const Navbar = () => {
       <ul className='hidden md:flex space-x-6'>
         <li className='py-2 text-2xl hover:text-white '><ScrollLink to="home" smooth={true} duration={500}>Home</ScrollLink></li>
 
-        <li className='py-2 text-2xl hover:text-white '><ScrollLink to="about" smooth={true} duration={500}>About</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-white '><ScrollLink to="about" smooth={true} duration={500} offset={-100}>About</ScrollLink></li>
 
         <li className='py-2 text-2xl hover:text-white '><ScrollLink to="skills" smooth={true} duration={500}>Skills</ScrollLink></li>
 
-        <li className='py-2 text-2xl hover:text-white  '><ScrollLink to="works" smooth={true} duration={500}>Works</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-white  '><ScrollLink to="works" smooth={true} duration={500} offset={-60}>Works</ScrollLink></li>
 
-        <li className='py-2 text-2xl hover:text-white '><ScrollLink to="contact" smooth={true} duration={500}>Contact</ScrollLink></li>
+        <li className='py-2 text-2xl hover:text-white '><ScrollLink to="contact" smooth={true} duration={500} offset={-150}>Contact</ScrollLink></li>
       </ul>
 
       {/* Hamberger Menu */}
@@ -60,9 +60,7 @@ const Navbar = () => {
 
       <div className='hidden lg:flex fixed flex-col top-[35%] left-0 text-[#000] bg-[#fbc1d4]'>
         <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-          {/* <a className='flex justify-between items-center w-full text-[999b84]' href='' target="_blank" rel="noopener noreferrer">
-            Resume<BsFilePerson size={30}></BsFilePerson>
-          </a> */}
+
         </li>
         <ul>
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
@@ -77,34 +75,27 @@ const Navbar = () => {
               <FaGithub size={30} />
             </a>
           </li>
+          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
+            <button
+              onClick={() => {
+                const contactElement = document.getElementById('contact');
+                if (contactElement) {
+                  const offset = -150;
+                  const elementPosition = contactElement.getBoundingClientRect().top + window.scrollY;
+                  const offsetPosition = elementPosition + offset;
 
-          {/* <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-            <ScrollLink
-              to="contact"
-              smooth={true}
-              duration={500}
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               className='flex justify-between items-center w-full'
             >
               Email
               <BsEnvelope size={30} />
-            </ScrollLink>
-          </li> */}
-
-<li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
-  <button
-    onClick={() => {
-      const contactElement = document.getElementById('contact');
-      if (contactElement) {
-        contactElement.scrollIntoView({ behavior: 'instant' }); // スクロールなしで移動
-      }
-    }}
-    className='flex justify-between items-center w-full'
-  >
-    Email
-    <BsEnvelope size={30} />
-  </button>
-</li>
-
+            </button>
+          </li>
         </ul>
       </div>
     </div >

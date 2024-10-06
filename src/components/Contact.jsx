@@ -31,8 +31,7 @@ const Contact = () => {
     try {
       setIsSending(true);
       // Simulate sending process
-      // await axios.post(`${process.env.REACT_APP_API_URL}/contact`, {
-      await axios.post('https://juliaishibashi.vercel.app/contact', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/contact`, {
         name: name,
         email: email,
         message: message,
@@ -42,7 +41,17 @@ const Contact = () => {
       // After sending, mark email as sent
       setEmailSent(true);
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        // when server res
+        console.error("Error response data:", error.response.data);
+        console.error("Error response status:", error.response.status);
+        console.error("Error response headers:", error.response.headers);
+      } else if (error.request) {
+        // req sent but no res
+        console.error("Error request:", error.request);
+      } else {
+        console.error("Error message:", error.message);
+      }
     } finally {
       setIsSending(false);
     }

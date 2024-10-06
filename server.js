@@ -40,7 +40,7 @@ app.post('/contact', async (req, res) => {
         // await transporter.sendMail(SendMailOptions);
         await transporter.sendMail(ReceiveMailOptions);
         res.status(200).json({ message: 'message sent' });
-    } catch {
+    } catch (error){
         console.error('Error sending email:', error);
         res.status(500).json({ message: 'Failed to send the message :(' });
     }
