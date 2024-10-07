@@ -4,7 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Skills from './components/Skills';
 import Works from './components/Works';
-import Contact from './components/Contact';
+// import Contact from './components/Contact';
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
       <div id="about"><About /></div>
       <div id="skills"><Skills /></div>
       <div id="works"><Works /></div>
-      <div id="contact"><Contact /></div>
+      {/* <div id="contact"><Contact /></div> */}
     </div>
   );
 }

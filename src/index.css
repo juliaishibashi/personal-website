@@ -36,7 +36,11 @@
         opacity: 0;
         transform: translateY(-100vh);
       }
-      
+      .skills-section {
+        min-height: 100vh;
+        padding: 50px 0;
+        position: relative;
+      }
       @keyframes fall {
         to {
           opacity: 1;

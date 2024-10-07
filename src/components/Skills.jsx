@@ -9,6 +9,7 @@ const skills = [
 
 const Skills = () => {
   const [randomDelay, setRandomDelay] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
 
@@ -18,12 +19,18 @@ const Skills = () => {
     setRandomDelay(delays);
   }, []);
 
+  useEffect(() => {
+    if (isInView) {
+      setIsVisible(true);
+    }
+  }, [isInView]);
+
   return (
     <div className='flex flex-col justify-center items-center w-full h-screen bg-[#fbc1d4]' ref={ref}>
       <motion.div
         className='max-w-[1000px] w-full grid grid-cols-2 gap-8'
         initial={{ y: 100, opacity: 0 }}
-        animate={isInView ? { y: 0, opacity: 1 } : {}}
+        animate={isVisible ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 1.5 }}
       >
         <div className='sm:text-right pb-8 pl-4'>
@@ -38,7 +45,7 @@ const Skills = () => {
         <motion.div
           key={categoryIndex}
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 1.5, delay: categoryIndex * 0.5 }}
           className="mb-6"
         >
@@ -49,7 +56,7 @@ const Skills = () => {
                 key={index}
                 className="skill-card bg-gray-100 text-gray-800 px-4 py-2 rounded-md shadow-md"
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: randomDelay[index] }}
               >
                 {skill}

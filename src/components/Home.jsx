@@ -25,7 +25,7 @@ const Home = () => {
 
         <div className='mt-6'>
         <p className='py-10'></p>
-          <ScrollLink to="works">
+          <ScrollLink to="works" offset={-60}>
 <button className='relative flex items-center justify-center w-40 h-40 rounded-full border-[#000] border-2 bg-transparent text-[#000] group border-[#000] border-2 rounded-full px-6 py-3 flex items-center hover:text-white hover:bg-[#000] hover:border-[#000]'>
       {/* Curved Text */}
       <div className='absolute inset-0 flex items-center justify-center'>
@@ -36,7 +36,6 @@ const Home = () => {
           cy={100}
           rx={90}
           ry={90}
-          startOffset={0}
           text=" See What I’ve Made * Check Out My Projects *"
           svgProps={{ className: 'absolute curved-text' }} // Apply the class here
           />

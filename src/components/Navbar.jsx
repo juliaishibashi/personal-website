@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { BsEnvelope } from 'react-icons/bs'
+// import { BsEnvelope } from 'react-icons/bs'
 import Logo from '../assets/julia.png'
 import Bird from '../assets/bird.png'
 import { Link as ScrollLink } from 'react-scroll';
@@ -37,7 +37,7 @@ const Navbar = () => {
 
         <li className='py-2 text-2xl hover:text-white  '><ScrollLink to="works" smooth={true} duration={500} offset={-60}>Works</ScrollLink></li>
 
-        <li className='py-2 text-2xl hover:text-white '><ScrollLink to="contact" smooth={true} duration={500} offset={-150}>Contact</ScrollLink></li>
+        {/* <li className='py-2 text-2xl hover:text-white '><ScrollLink to="contact" smooth={true} duration={500} offset={-150}>Contact</ScrollLink></li> */}
       </ul>
 
       {/* Hamberger Menu */}
@@ -52,7 +52,7 @@ const Navbar = () => {
           <li className='py-6 text-4xl hover:text-black'><ScrollLink to="about" onClick={handleClick} >About</ScrollLink></li>
           <li className='py-6 text-4xl hover:text-black'><ScrollLink to="skills" onClick={handleClick}>Skills</ScrollLink></li>
           <li className='py-6 text-4xl hover:text-black'><ScrollLink to="works" onClick={handleClick}>Works</ScrollLink></li>
-          <li className='py-6 text-4xl hover:text-black'><ScrollLink to="contact" onClick={handleClick} >Contact</ScrollLink></li>
+          {/* <li className='py-6 text-4xl hover:text-black'><ScrollLink to="contact" onClick={handleClick} >Contact</ScrollLink></li> */}
         </ul>
       </div>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
               <FaGithub size={30} />
             </a>
           </li>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
+          {/* <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300'>
             <button
               onClick={() => {
                 const contactElement = document.getElementById('contact');
@@ -95,7 +95,7 @@ const Navbar = () => {
               Email
               <BsEnvelope size={30} />
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div >
