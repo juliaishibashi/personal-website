@@ -5,10 +5,17 @@ const nodemailer = require('nodemailer');
 const port = process.env.PORT || 3001;
 
 const app = express();
-app.use(cors());
+
+// app.use(cors());
+
+app.use(cors({
+    origin: 'https://juliaishibashi.vercel.app',
+    methods: ['POST'],
+}));
 app.use(express.json());
 
 app.post('/contact', async (req, res) => {
+    console.log('Request body:', req.body);
     // Extract email and message from the request body
     const { name, email, message } = req.body;
 
