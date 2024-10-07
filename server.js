@@ -9,12 +9,14 @@ const app = express();
 // app.use(cors());
 
 app.use(cors({
-    origin: 'https://juliaishibashi.vercel.app',
+    // origin: 'https://juliaishibashi.vercel.app',
+    origin: '*',
     methods: ['POST'],
 }));
 app.use(express.json());
 
-app.post('/contact', async (req, res) => {
+// app.post('/contact', async (req, res) => {
+    app.post('api/contact', async (req, res) => {
     console.log('Request body:', req.body);
     // Extract email and message from the request body
     const { name, email, message } = req.body;
