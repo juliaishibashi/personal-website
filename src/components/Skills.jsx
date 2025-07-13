@@ -1,72 +1,84 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from "framer-motion";
 
-const skills = [
-  { category: "Languages", items: ["Java", "Python", "C++", "Swift", "SQL", "Julia", "R", "Javascript"] },
-  { category: "Technologies", items: ["Git", "React", "pandas", "JUnit", "Catch2"] },
-  { category: "Miscellaneous", items: ["Black/white box unit testing", "PostgreSQL", "Figma", "LaTeX", "Jupyter Notebook", "Matlab"] }
+const skillData = [
+  {
+    title: "Languages",
+    items: ["Java", "Python", "C++", "Swift", "SQL", "Julia", "R", "Javascript"],
+  },
+  {
+    title: "Technologies",
+    items: ["Git", "React", "pandas", "JUnit", "Catch2"],
+  },
+  {
+    title: "Miscellaneous",
+    items: ["Figma", "Jupyter notebook", "LaTeX", "PostgreSQL", "Matlab"],
+  },
 ];
 
-const Skills = () => {
-  const [randomDelay, setRandomDelay] = useState([]);
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
-
-  useEffect(() => {
-    // Generate random delays for animation
-    const delays = skills.flatMap(skill => skill.items.map(() => Math.random() * 0.5));
-    setRandomDelay(delays);
-  }, []);
-
-  useEffect(() => {
-    if (isInView) {
-      setIsVisible(true);
-    }
-  }, [isInView]);
-
+export default function Skills() {
   return (
-    <div className='flex flex-col justify-center items-center w-full h-screen bg-[#fbc1d4]' ref={ref}>
-      <motion.div
-        className='max-w-[1000px] w-full grid grid-cols-2 gap-8'
-        initial={{ y: 100, opacity: 0 }}
-        animate={isVisible ? { y: 0, opacity: 1 } : {}}
+    <div
+      className="relative min-h-screen bg-gradient-to-br from-[#050017] via-[#0f0036] to-[#180057] text-[#dcff10] px-4 py-20 font-mono"
+    >
+      {/* 背景の星アニメーション */}
+      <div className="absolute inset-0 z-0">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{ y: ["0%", "100%"] }}
+            transition={{
+              duration: 8 + Math.random() * 10,
+              repeat: Infinity,
+              delay: i * 0.3,
+            }}
+            style={{
+              position: "absolute",
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: 2,
+              height: 2,
+              borderRadius: "50%",
+              backgroundColor: "rgba(220, 255, 16, 0.8)",
+              opacity: 0.6,
+            }}
+          />
+        ))}
+      </div>
+      <motion.h1
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
+        className="relative z-10 text-5xl font-extrabold text-center mb-16 font-pixel"
       >
-        <div className='sm:text-right pb-8 pl-4'>
-          <p className='text-5xl inline border-b border-[#000000]'>
-            Skills
-          </p>
-        </div>
-        <div></div>
-      </motion.div>
+        SKILLS
+      </motion.h1>
 
-      {skills.map((skillCategory, categoryIndex) => (
-        <motion.div
-          key={categoryIndex}
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : {}}
-          transition={{ duration: 1.5, delay: categoryIndex * 0.5 }}
-          className="mb-6"
-        >
-          <h3 className="text-xl font-semibold mb-4">{skillCategory.category}</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {skillCategory.items.map((skill, index) => (
-              <motion.div
-                key={index}
-                className="skill-card bg-gray-100 text-gray-800 px-4 py-2 rounded-md shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: randomDelay[index] }}
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      ))}
+      <div
+        className="relative z-10 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto font-pixel"
+      >
+        {skillData.map((section, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: i * 0.3 }}
+            viewport={{ once: true }}
+            className="bg-white/5 backdrop-blur-md border border-[#dcff10]/20 rounded-2xl p-6 hover:rotate-1 hover:scale-105 transform transition"
+            style={{ boxShadow: "none" }} // ぼやけ影を消すためにinline styleで上書き
+          >
+            <h2 className="text-xl font-bold text-[#ff6fff] mb-4 font-pixel">
+              {section.title}
+            </h2>
+            <ul className="space-y-2 text-sm tracking-wide">
+              {section.items.map((skill, j) => (
+                <li key={j} className="flex items-center gap-2">
+                  <span className="text-[#dcff10]">▹</span> {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
-};
-
-export default Skills;
+}

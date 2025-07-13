@@ -6,6 +6,7 @@
     "@emailjs/browser": "^4.3.3",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@fontsource/press-start-2p": "^5.2.5",
     "@mui/material": "^6.1.0",
     "@react-pdf/renderer": "^3.4.4",
     "@testing-library/jest-dom": "^6.4.5",

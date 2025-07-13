@@ -2,53 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @layer base {
-    body {
-        /* font-family: 'Lilita One', cursive; */
-        font-family: Optima, sans-serif;
-        @apply text-xl
-    }
+  body {
+    font-family: 'Optima', sans-serif;
+    @apply text-base leading-tight;
+  }
 
-    li {
-        @apply px-4;
-        @apply cursor-pointer;
-    }
+  li {
+    @apply px-4 cursor-pointer;
+  }
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
 
-    .curved-text {
+  .curved-text {
     overflow: visible;
     letter-spacing: 6px;
     font-size: 14px;
     animation: spin 20s linear infinite;
-    }
+  }
 
-    @keyframes spin {
+  @keyframes spin {
     0% {
-        transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+      transform: rotate(360deg);
     }
+  }
+
+  .skill-card {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+
+  .skills-section {
+    min-height: 100vh;
+    padding: 50px 0;
+    position: relative;
+  }
+
+  @keyframes fall {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-    .skill-card {
-        opacity: 0;
-        transform: translateY(-100vh);
-      }
-      .skills-section {
-        min-height: 100vh;
-        padding: 50px 0;
-        position: relative;
-      }
-      @keyframes fall {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .star {
-        display: inline-block;
-        transform: translateY(px); /* Adjust the value to lower the position */
-      }
+  }
+
+  .star {
+    display: inline-block;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes shiftLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.5s ease-in-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.5s ease-in-out forwards;
+}
+
+.animate-shift-left {
+  animation: shiftLeft 0.5s ease-in-out forwards;
+}
+
+.perspective-1000 {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+.rotate-y-45 {
+  transform: rotateY(45deg);
+}
+
+.-rotate-y-45 {
+  transform: rotateY(-45deg);
+}
+
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  transition: all 0.5s ease-in-out;
 }
