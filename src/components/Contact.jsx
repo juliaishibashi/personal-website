@@ -16,14 +16,24 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
-
+  
     try {
-      await axios.post('/api/contact', form);
+      const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      console.log(data);
       setEmailSent(true);
       setForm({ name: '', email: '', message: '' });
-    } catch (err) {
-      console.error('Failed to send message:', err);
-      alert('Error sending message.');
+    } catch (error) {
+      console.error(error);
+      alert('Failed to send message');
     } finally {
       setIsSending(false);
     }
