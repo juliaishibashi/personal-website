@@ -11,8 +11,6 @@ const Contact = () => {
   const [emailSent, setEmailSent] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
-  // const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
-
   const handleNameChange = (event) => {
     setName(event.target.value);
   };

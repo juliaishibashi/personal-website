@@ -1,3 +1,4 @@
+import nodemailer from 'nodemailer';
 
 // only accept POST req, o.w return method not allowed(405)
 export default async function handler(req, res) {
