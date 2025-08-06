@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField'; 
 import CircularProgress from '@mui/material/CircularProgress';
-import axios from 'axios';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
