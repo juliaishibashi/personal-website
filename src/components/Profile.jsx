@@ -20,34 +20,36 @@ const heartVariants = {
 const interestsData = [
   {
     title: 'Golfing',
-    description: 'I got into golf because of my mom loves it. I have been at it for around 10 years (but I am not that good). Even so, it is a sport I will always love! It is not just about hitting shots—I also really enjoy the smell of the fresh cut grass and the feeling of walking around the course',
+    description: 'I got into golf because of my mom loves it. I have been golfing for around 10 years (but I am not that good). Even so, it is a sport I will always love! It is not just about hitting shots, I also really enjoy the smell of the fresh cut grass and the feeling of walking around the course',
     icon: '⛳',
   },
   {
     title: 'Cycling',
-    description: 'I originally bought my bike just for commuting, but I ended up really enjoying riding it (it has become a new hobby!) Now I am even volunteering to help with bike repair because I want to learn more about bicycles',
+    description: 'I originally bought my bike just for commuting, but I ended up really enjoying riding it (it has become a new hobby!) I started volunteering to bike repair as well because I want to learn more about bicycles',
     icon: '🚴‍♀️',
   },
   {
     title: 'Learning Mandarin',
-    description: 'I think I enjoy studying languages.Mandarin has got a lot in common with Japanese, which makes it super fun to keep studying',
+    description: 'I think I enjoy studying languages. Mandarin has got a lot in common with Japanese, which makes it super fun to keep studying',
     icon: '📚',
   }
 ];
 
 const educationData = [
   {
-    year: "2022 - current",
+    year: "2022 - expected graduation June 2026",
     school: "University of Victoria (BSc in Computer Science)",
     place: "Victoria, BC",
     description: "Currently studying computer science. Excited to learn more about software development!\nSelected Coursework:",
     coursework: [
       "Data Mining",
+      "Data Science",
       "Digital Logic",
       "Software Testing",
       "Database Systems",
       "Computer Modeling",
       "Human Computer Interaction",
+      "Software-Defined Networking",
       "Overlay and Peer-to-Peer Networking"]
   },
   {
@@ -61,7 +63,7 @@ const educationData = [
 const biography = `
 I grew up in Japan and have both Canadian and Japanese roots. I moved to Victoria in 2020 to begin university, and since then, I have come to really appreciate the city — its mild weather, nearby beaches, and the welcoming atmosphere at the University of Victoria.
 
-I am currently studying Computer Science with a Communications and Networks option. I plan to graduate in April 2026.
+I am currently studying Computer Science with a Communications and Networks option. I plan to graduate in June 2026.
 `;
 
 const Profile = () => {
