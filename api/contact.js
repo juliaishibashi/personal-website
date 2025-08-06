@@ -19,17 +19,17 @@ export default async function handler(req, res) {
       },
     });
 
-    await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
+    const ReceiveMailOptions = {
+      from: email,
       to: process.env.EMAIL_USER,
-      subject: 'Contact Form Submission',
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-    });
+      subject: 'Messaging from your home page',
+      text: `From: ${name}(${email})\n Message: ${message}`,
+    };
 
-    // console.log('Contact form submission:', { name, email, message });
+    await transporter.sendMail(ReceiveMailOptions);
     
     // success response
-    res.status(200).json({ message: 'Message sent successfully' });
+    res.status(200).json({ message: 'message sent' });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ message: 'Internal server error' });

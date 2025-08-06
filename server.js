@@ -16,7 +16,7 @@ app.use(cors({
 app.use(express.json());
 
 // app.post('/contact', async (req, res) => {
-    app.post('api/contact', async (req, res) => {
+app.post('/api/contact', async (req, res) => {
     console.log('Request body:', req.body);
     // Extract email and message from the request body
     const { name, email, message } = req.body;
@@ -24,7 +24,7 @@ app.use(express.json());
     //set sending mail
     require('dotenv').config();
     const transporter = nodemailer.createTransport({
-        service: process.env.EMAIL,
+        service: 'gmail',
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
