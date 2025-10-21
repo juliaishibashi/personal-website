@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 const skillData = [
   {
     title: "Languages",
-    items: ["Java", "Python", "C++", "Swift", "SQL", "Julia", "R", "Javascript"],
+    items: ["R", "C++", "SQL", "Java", "Swift", "Julia", "Python", "Javascript"],
   },
   {
     title: "Technologies",
-    items: ["Git", "React", "pandas", "JUnit", "Catch2"],
+    items: ["Git", "JUnit", "React", "pandas", "Catch2"],
   },
   {
     title: "Miscellaneous",
-    items: ["Figma", "Jupyter notebook", "LaTeX", "PostgreSQL", "Matlab"],
+    items: ["Figma", "LaTeX", "ArcGIS", "PostgreSQL", "Jupyter notebook"],
   },
 ];
 
@@ -20,17 +20,10 @@ export default function Skills() {
     <div
       className="relative min-h-screen bg-gradient-to-br from-[#050017] via-[#0f0036] to-[#180057] text-[#dcff10] px-4 py-20 font-mono"
     >
-      {/* 背景の星アニメーション */}
       <div className="absolute inset-0 z-0">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            animate={{ y: ["0%", "100%"] }}
-            transition={{
-              duration: 8 + Math.random() * 10,
-              repeat: Infinity,
-              delay: i * 0.3,
-            }}
             style={{
               position: "absolute",
               top: `${Math.random() * 100}%`,
@@ -64,7 +57,6 @@ export default function Skills() {
             transition={{ duration: 1, delay: i * 0.3 }}
             viewport={{ once: true }}
             className="bg-white/5 backdrop-blur-md border border-[#dcff10]/20 rounded-2xl p-6 hover:rotate-1 hover:scale-105 transform transition"
-            style={{ boxShadow: "none" }} // ぼやけ影を消すためにinline styleで上書き
           >
             <h2 className="text-xl font-bold text-[#ff6fff] mb-4 font-pixel">
               {section.title}
