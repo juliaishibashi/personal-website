@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
-// import { BsEnvelope } from 'react-icons/bs'
 import Logo from '../assets/julia.png'
 import Bird from '../assets/bird.png'
 import { Link as ScrollLink } from 'react-scroll';
