@@ -20,16 +20,8 @@ export const data = [
         description: "In math class, I learned about the Mandelbrot set and soon discovered the Julia set. Since my name is Julia, I built this Julia Set visualizer using the Julia programming language.",
 
     },
-    // {
-    //     id: 3,
-    //     name: "Maze Game",
-    //     image: comingsoon,
-    //     github: "https://github.com/juliaishibashi/cpp-maze",
-    //     description: "A personal website to showcase my work and skills. Built with React and Tailwind CSS.",
-
-    // },
     {
-        id: 4,
+        id: 3,
         name: "Academic Reminder",
         image: reminder,
         github: "https://github.com/juliaishibashi/academic-reminder",
